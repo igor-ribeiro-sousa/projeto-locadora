@@ -1,0 +1,53 @@
+<div class="container mat-elevation-z8">
+  <form class="form">
+
+    <h1 class="fullWidth">Deletar Veículo</h1>
+    <img class="fullWidth" src="assets/img/tecnico-create.svg" alt="PRO-UI - DEV">
+
+    <mat-form-field class="fullWidth" appearance="legacy">
+      <mat-label>Marca</mat-label>
+      <input [(ngModel)]="veiculo.marca" name="marca" disabled="true" matInput
+        placeholder="Ex..." maxlength="50" >
+        <mat-icon matSuffix>local_convenience_store</mat-icon>
+      </mat-form-field>
+
+    <mat-form-field class="fullWidth" appearance="legacy">
+      <mat-label>Modelo</mat-label>
+      <input [(ngModel)]="veiculo.modelo" name="modelo" disabled="true" matInput
+        placeholder="Ex..." maxlength="50" >
+        <mat-icon matSuffix> layers</mat-icon>
+      </mat-form-field>
+
+    <mat-form-field class="fullWidth" appearance="legacy">
+      <mat-label>Ano fabricação</mat-label>
+      <input [(ngModel)]="veiculo.anoFabricacao" name="anoFabricacao" disabled="true" matInput placeholder="Ex..2023"
+        mask="0000">
+      <mat-icon matSuffix>pin </mat-icon>
+    </mat-form-field>
+    
+    <mat-form-field class="fullWidth" appearance="legacy">
+      <mat-label>Ano modelo</mat-label>
+      <input [(ngModel)]="veiculo.anoModelo" name="anoModelo"  disabled="true"matInput placeholder="Ex..2023"
+        mask="0000">
+      <mat-icon matSuffix>pin </mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="fullWidth" appearance="legacy">
+      <mat-label>Valor</mat-label>
+      <input [(ngModel)]="veiculo.valor" (input)="formatarMoeda($event)" disabled="true" name="valor" matInput
+        placeholder="Ex...125,25">
+      <mat-icon matSuffix>money</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="fullWidth" appearance="legacy">
+      <mat-label>Descrição</mat-label>
+      <input [(ngModel)]="veiculo.descricao" name="descricao" disabled="true" matInput placeholder="Ex..">
+      <mat-icon matSuffix>description</mat-icon>
+    </mat-form-field>
+
+
+    <button (click)="delete()" class="fullWidth mat-elevation-z4" mat-flat-button color="primary">DELETAR</button>
+    <button routerLink="../../" class="fullWidth mat-elevation-z4" mat-stroked-button color="basic">VOLTAR</button>
+  </form>
+
+</div>

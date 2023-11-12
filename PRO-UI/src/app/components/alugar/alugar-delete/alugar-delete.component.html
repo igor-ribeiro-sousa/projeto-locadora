@@ -1,0 +1,72 @@
+<div class="container mat-elevation-z8">
+  <form class="form">
+
+    <mat-form-field class="fullWidth" appearance="legacy">
+      <mat-label>Cliente</mat-label>
+      <input [(ngModel)]="locacao.usuario.nome" disabled="true" name="usuario" matInput
+         maxlength="50">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="fullWidth" appearance="legacy">
+      <mat-label>CPF</mat-label>
+      <input [(ngModel)]="locacao.usuario.cpf" disabled="true" name="cpf" matInput
+      mask="000.000.000-00" maxlength="50">
+      <mat-icon matSuffix>pin</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="fullWidth" appearance="legacy">
+      <mat-label>Telefone</mat-label>
+      <input [(ngModel)]="locacao.usuario.telefone" disabled="true" name="telefone" matInput
+      mask="(00)0.0000-0000" maxlength="50">
+      <mat-icon matSuffix>pin</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="fullWidth" appearance="legacy">
+      <mat-label>Email</mat-label>
+      <input [(ngModel)]="locacao.usuario.email" disabled="true" name="email" matInput
+      maxlength="50">
+      <mat-icon matSuffix>email</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="fullWidth" appearance="legacy">
+      <mat-label>Veiculo</mat-label>
+      <input disabled="true" name="modelo" matInput
+      value="{{locacao.veiculo.marca + ' '
+             + locacao.veiculo.modelo + ' ' 
+             + locacao.veiculo.anoFabricacao + '/' 
+             + locacao.veiculo.anoModelo}}"
+         maxlength="50">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+    <div class="datas">
+      <mat-form-field class="dateWidth" appearance="legacy">
+        <mat-label>Data da locação</mat-label>
+        <div class="datepicker-container">
+          <input aptSoNumero [(ngModel)]="locacao.dataLocacao" name="dataLocacao"
+                 matInput [matDatepicker]="pickerLocacao" disabled="true">
+          <mat-datepicker-toggle class="iconDate" matSuffix [for]="pickerLocacao"></mat-datepicker-toggle>
+        </div>
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker #pickerLocacao></mat-datepicker>
+      </mat-form-field>
+    
+      <mat-form-field class="dateWidth" appearance="legacy">
+        <mat-label>Data da entrega</mat-label>
+        <div class="datepicker-container">
+          <input aptSoNumero [(ngModel)]="locacao.dataEntrega" name="dataEntrega"
+                 matInput [matDatepicker]="pickerEntrega" disabled="true">
+          <mat-datepicker-toggle class="iconDate" matSuffix [for]="pickerEntrega"></mat-datepicker-toggle>
+        </div>
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker #pickerEntrega></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+
+    <button (click)="delete()" class="fullWidth mat-elevation-z4" mat-flat-button color="primary">DELETAR</button>
+    <button routerLink="../../" class="fullWidth mat-elevation-z4" mat-stroked-button color="basic">VOLTAR</button>
+  </form>
+
+</div>

@@ -1,0 +1,49 @@
+package com.pro.entities.dtos;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.validation.constraints.NotNull;
+
+import com.pro.entities.Locacao;
+import com.pro.entities.Usuario;
+import com.pro.entities.Veiculo;
+
+public class LocacaoDTO implements Serializable
+{
+   private static final long serialVersionUID = 1L;
+
+   protected Integer id;
+
+   @NotNull(message = "O campo CODIGO USUARIO é requerido")
+   protected Long codigoUsuario;
+
+   protected Usuario usuario;
+
+   @NotNull(message = "O campo CODIGO VEICULO é requerido")
+   protected Long codigoVeiculo;
+
+   protected Veiculo veiculo;
+
+   protected Date dataReserva;
+
+   protected Date dataLocacao;
+
+   protected Date dataEntrega;
+   
+   public LocacaoDTO()
+   {
+   }
+   
+   public LocacaoDTO(Locacao obj)
+   {
+      this.id = obj.getId();
+      this.codigoUsuario = obj.getCodigoUsuario();
+      this.usuario = obj.getUsuario();
+      this.codigoVeiculo = obj.getCodigoVeiculo();
+      this.veiculo = obj.getVeiculo();
+      this.dataReserva = obj.getDataReserva();
+      this.dataLocacao = obj.getDataLocacao();
+      this.dataEntrega = obj.getDataEntrega();
+   }
+}

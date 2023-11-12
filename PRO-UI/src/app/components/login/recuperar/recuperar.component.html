@@ -1,0 +1,32 @@
+<div class="container">
+   <form class="form mat-elevation-z8">
+      
+      <h1>Recuperar Senha</h1>
+
+      <img src="assets/img/login-image.svg" alt="Help Desk - Dicas de um DEV">
+
+      <mat-form-field class="full-width" appearance="legacy">
+         <mat-label>E-mail</mat-label>
+         <input [(ngModel)]="usuario.email" name="email" matInput
+           placeholder="Ex.. fulano@mail.com">
+         <mat-icon matSuffix>email</mat-icon>
+       </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="legacy">
+         <mat-label>Data de nascimento</mat-label>
+         <div class="datepicker-container">
+           <input aptSoNumero [(ngModel)]="usuario.dataNascimento" name="dataNascimento"
+                  matInput [matDatepicker]="picker">
+           <mat-datepicker-toggle class="iconDate" matSuffix [for]="picker"></mat-datepicker-toggle>
+         </div>
+         <mat-hint>DD/MM/YYYY</mat-hint>
+         <mat-datepicker #picker></mat-datepicker>
+       </mat-form-field>
+       
+       <button (click)="recuperarSenha()" class="full-width mat-elevation-z4" mat-stroked-button
+       color="primary">RECUPERAR SENHA
+      </button>
+      <button routerLink="../" class="full-width mat-elevation-z4" mat-stroked-button color="basic">VOLTAR</button>
+   </form>
+
+</div>

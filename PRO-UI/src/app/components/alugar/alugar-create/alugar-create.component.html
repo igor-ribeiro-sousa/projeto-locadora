@@ -1,0 +1,55 @@
+<div class="container mat-elevation-z8">
+  <form class="form">
+
+    <h1 class="fullWidth">Alugar um Veículo</h1>
+    <img class="fullWidth" src="assets/img/tecnico-create.svg" alt="">
+
+    <div class="usuarios">
+      <mat-form-field class="fullWidth" appearance="outline">
+        <mat-label>Selecione um cliente</mat-label>
+        <mat-select [(ngModel)]="locacao.codigoUsuario" name="usuarios">
+          <mat-option *ngFor="let item of usuarios" value="{{ item.id }}">{{ item.nome }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="veiculs">
+      <mat-form-field class="fullWidth" appearance="outline">
+        <mat-label>Selecione um veiculo</mat-label>
+        <mat-select [(ngModel)]="locacao.codigoVeiculo" name="usuarios">
+          <mat-option *ngFor="let item of veiculos" value="{{ item.id }}">{{ item.modelo +' '+ item.anoFabricacao +'/'+ item.anoModelo }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="datas">
+      <mat-form-field class="dateWidth" appearance="legacy">
+        <mat-label>Data da locação</mat-label>
+        <div class="datepicker-container">
+          <input aptSoNumero [(ngModel)]="locacao.dataLocacao" name="dataLocacao"
+                 matInput [matDatepicker]="pickerLocacao">
+          <mat-datepicker-toggle class="iconDate" matSuffix [for]="pickerLocacao"></mat-datepicker-toggle>
+        </div>
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker #pickerLocacao></mat-datepicker>
+      </mat-form-field>
+    
+      <mat-form-field class="dateWidth" appearance="legacy">
+        <mat-label>Data da entrega</mat-label>
+        <div class="datepicker-container">
+          <input aptSoNumero [(ngModel)]="locacao.dataEntrega" name="dataEntrega"
+                 matInput [matDatepicker]="pickerEntrega">
+          <mat-datepicker-toggle class="iconDate" matSuffix [for]="pickerEntrega"></mat-datepicker-toggle>
+        </div>
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker #pickerEntrega></mat-datepicker>
+      </mat-form-field>
+    </div>
+    
+
+    <button (click)="inserir()" class="fullWidth mat-elevation-z4" mat-flat-button
+      color="primary">CADASTRAR</button>
+    <button routerLink="../" class="fullWidth mat-elevation-z4" mat-stroked-button color="basic">VOLTAR</button>
+  </form>
+
+</div>

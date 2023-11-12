@@ -1,0 +1,55 @@
+package com.pro.services;
+
+import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.pro.entities.Carro;
+import com.pro.entities.Usuario;
+import com.pro.entities.enums.Perfil;
+import com.pro.entities.enums.Status;
+import com.pro.repositories.CarroRepository;
+import com.pro.repositories.PessoaRepository;
+
+@Service
+public class DBService
+{
+
+   @Autowired
+   private PessoaRepository pessoaRepository;
+   
+   @Autowired
+   private CarroRepository carroRepository;
+
+   @Autowired
+   private BCryptPasswordEncoder encoder;
+
+   public void instanciaDB() throws ParseException
+   {
+      SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+
+      Usuario user1 = new Usuario(null, "Seu Zezinho", "11166189074", "ze@mail.com", encoder.encode("123"), "85985521245", fmt.parse("17/08/1996"), "S");
+      user1.addPerfil(Perfil.ADMIN);
+      
+      Carro carro1 = new Carro(null, "Chevrolet", "Onix", "2019", "2020", new BigDecimal("56990.00"), null, null, "S");
+      carro1.addStatus(Status.RESERVADO);
+      
+      Carro carro2 = new Carro(null, "Volks", "Gol", "2017", "2017", new BigDecimal("35990.00"), null, null, "S");
+      carro1.addStatus(Status.DISPONIVEL);
+      
+      Carro carro3 = new Carro(null, "Toyota", "Corola", "2019", "2020", new BigDecimal("120990.00"), "Um Belo Carro", null, "S");
+      carro1.addStatus(Status.DISPONIVEL);
+      
+      Usuario user2 = new Usuario(null, "Raimundinha", "123456789-85", "rai@mail.com", "859123445678",
+            fmt.parse("22/09/1989"), carro1, "S");
+      user2.addPerfil(Perfil.CLIENTE);
+
+      carroRepository.saveAll(Arrays.asList(carro1, carro2, carro3));
+      pessoaRepository.saveAll(Arrays.asList(user1, user2));
+   }
+}

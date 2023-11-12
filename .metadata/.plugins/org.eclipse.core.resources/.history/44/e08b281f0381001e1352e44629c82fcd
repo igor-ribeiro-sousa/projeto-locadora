@@ -1,0 +1,71 @@
+package com.pro.controller;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.pro.entities.Locacao;
+import com.pro.entities.Usuario;
+import com.pro.entities.dtos.LocacaoDTO;
+import com.pro.entities.dtos.UsuarioDTO;
+import com.pro.services.LocacaoService;
+import com.pro.services.UsuarioService;
+import com.pro.services.VeiculoService;
+
+@RestController
+@RequestMapping(value = "/locacoes")
+public class LocacaoController
+{
+   @Autowired
+   private LocacaoService service;
+
+   @Autowired
+   private VeiculoService veiculoService;
+   
+   @Autowired
+   private UsuarioService usuarioService;
+   
+
+//   @GetMapping(value = "/{id}")
+//   public ResponseEntity<CarroDTO> findById(@PathVariable Integer id)
+//   {
+//      Carro obj = veiculoService.findById(id);
+//      return ResponseEntity.ok().body(new CarroDTO(obj));
+//   }
+//
+   @GetMapping
+   public ResponseEntity<List<LocacaoDTO>> findAll()
+   {
+      List<Locacao> list = service.findAll();
+      List<LocacaoDTO> listDTO = list.stream().map(obj -> new LocacaoDTO(obj)).collect(Collectors.toList());
+      return ResponseEntity.ok().body(listDTO);
+   }
+
+//   @PostMapping
+//   public ResponseEntity<UsuarioDTO> inserir(@Valid @RequestBody UsuarioDTO objDTO)
+//   {
+//      Usuario newObj = service.inserir(objDTO);
+//      URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newObj.getId()).toUri();
+//      return ResponseEntity.created(uri).build();
+//   }
+//
+//   @PutMapping(value = "/{id}")
+//   public ResponseEntity<UsuarioDTO> alterar(@PathVariable Integer id, @Valid @RequestBody UsuarioDTO objDTO)
+//   {
+//      Usuario obj = service.alterar(id, objDTO);
+//      return ResponseEntity.ok().body(new UsuarioDTO(obj));
+//   }
+//
+//   @DeleteMapping(value = "/{id}")
+//   public ResponseEntity<UsuarioDTO> delete(@PathVariable Integer id)
+//   {
+//      service.delete(id);
+//      return ResponseEntity.noContent().build();
+//   }
+
+}
