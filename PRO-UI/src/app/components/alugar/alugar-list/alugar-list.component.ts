@@ -56,12 +56,10 @@ export class AlugarListComponent implements OnInit {
   baixarRelatorioPDF(): void {
     this.service.gerarRelatorioPDF().subscribe(
       (pdf: Blob) => {
-        // Salvar o arquivo usando FileSaver.js
         saveAs(pdf, 'relatorio.pdf');
       },
       error => {
         console.error('Erro ao baixar o relatório PDF', error);
-        // Lide com o erro conforme necessário
       }
     );
   }

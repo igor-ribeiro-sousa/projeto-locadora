@@ -20,7 +20,7 @@ import { AlugarDeleteComponent } from './components/alugar/alugar-delete/alugar-
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'recuperar', component: RecuperarLoginComponent }, // Adicione esta linha
+  { path: 'recuperar', component: RecuperarLoginComponent },
 
   {
     path: '', component: NavComponent, canActivate: [AuthGuard], children: [
