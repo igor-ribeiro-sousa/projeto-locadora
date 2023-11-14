@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Dev\Meus-Projetos\projeto-locadora\PRO-WEB"/>
 			<item value="C:\Dev\Projetos\Trabalho-PI\PRO-WEB"/>
 		</list>
 		<list key="projectNameTemplate">
