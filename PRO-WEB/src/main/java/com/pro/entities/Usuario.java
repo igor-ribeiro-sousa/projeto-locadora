@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import javax.persistence.Entity;
 
 import com.pro.entities.dtos.UsuarioDTO;
+import lombok.Builder;
 
 @Entity
 public class Usuario extends Pessoa
